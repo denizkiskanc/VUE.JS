@@ -29,12 +29,12 @@ export default {
 <div class="container">
   <h3>Sepete Ekle</h3>
   <ul>
-    <li v-for="item in cardItems" :key="item.id">{{item.title}}</li>
+    <li v-for="item in cardItems" :key="item.id">{{item.title}}</li> <!-- veriyi yazırıyoruz-->
   </ul>
   <p v-if="cardItems.length==0">Sepet boş</p>
   <hr>
 <!-- <myComp></myComp> -->
-<product @addToCard="cardItems.push($event)" :product ="product" v-for="product in productList" :key="product.id"/>
+<product @addToCard="cardItems.push($event)" :product ="product" v-for="product in productList" :key="product.id"/><!-- veriyi burda karşılyıoruz-->
 
 </div>
 </template>

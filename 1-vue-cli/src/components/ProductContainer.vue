@@ -11,12 +11,12 @@
 
 export default {
 
-    props : ["product"], //[] yada {}
+    props : ["product"], //almak istediğimiz veri
     methods:{
         addToCard(product){
 
             this.$emit("addToCard",product)// key(eventin adı),value
-
+            //$emit vue instance’nın kullandığı bir metod. Veri yaymamızı sağlar.
         }
     }  
 
