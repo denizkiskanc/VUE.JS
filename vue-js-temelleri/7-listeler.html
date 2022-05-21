@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<style>
+
+  ul{
+    margin-top: 10px;
+    margin:0px;
+    padding: 0px;
+    width:300px;
+    list-style: none;
+
+  }
+
+  li{
+     
+    padding: 5px 5px;
+    margin-top: 10px;
+    margin-bottom:5px;
+    border: 1px solid #ccc;
+    text-align: left;
+    
+  }
+
+  .red{
+    background-color: rgba(242, 101, 110, 0.2);
+  }
+
+  .green {
+    background-color: rgba(141, 242, 101, 0.2);
+    
+  }
+</style>
+    
+</head>
+<body>
+    <div id="app">
+       <ul>
+           <li v-for="i in list" >{{i}}</li>
+           <li v-for="item in 10" >{{item}}</li>
+       </ul>
+       <br>
+       <div v-for="(value,key) in personel">
+
+       {{key + ":" + value}}
+       </div>
+
+       <hr>
+       Adet:<input type="text" v-model="sellCount">
+       <ul>
+           <li v-for="product in productList" :class="{'green' : product.count > 0,  'red':product.count <= 0}">
+            <span>{{product.title}}- {{product.count}}</span>
+            <button :disabled = "product.count==0" @click="product.count=product.count-sellCount">Satıldı</button>
+           </li>
+       </ul>
+     
+    </div>
+
+    <script>
+    //{{i}} yerine v-text="i" kullanılabilir.
+       new Vue({
+
+        el:"#app",
+        data:{
+            sellCount:0,
+            list:["Elma","Armut","Kiraz"],
+            personel: {
+
+                name: "Deniz",
+                lastname:"Kıskanç",
+                email:"denizkiskancc@gmail.com"
+            },
+
+            productList:[
+               {
+                 title:"Macbook Pro",
+                 price:1200,
+                 count:10
+               },
+
+               {
+                 title:"Macbook Air",
+                 price:1000,
+                 count:10
+               },
+
+               {
+                 title:"İphone 13 Pro",
+                 price:800,
+                 count:10
+               }
+            ]
+           
+        }
+     
+       });
+    </script>
+
+</body>
+</html>
